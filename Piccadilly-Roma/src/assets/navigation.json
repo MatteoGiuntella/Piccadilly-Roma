@@ -1,0 +1,37 @@
+[
+    {   "id":1,
+        "title": "Home",
+        "icon": "fa-solid fa-house fa-lg",
+        "url": "/"
+    },
+    {
+        "id":2,
+        "title": "Menù",
+        "icon": "fa-solid fa-book-open fa-lg",
+        "url": "/"
+    },
+    {
+        "id":3,
+        "title": "Eventi",
+        "icon": "fa-solid fa-champagne-glasses fa-lg",
+        "url": "/"
+    },
+    {
+        "id":4,
+        "title": "Chi siamo",
+        "icon": "fa-solid fa-store fa-lg",
+        "url": "/"
+    },
+    {
+        "id":5,
+        "title": "Prenotazioni e Contatti",
+        "icon": "fa-solid fa-bell-concierge fa-lg",
+        "url": "/"
+    },
+    {
+        "id":6,
+        "title": "Dicono di noi",
+        "icon": "fa-solid fa-newspaper fa-lg",
+        "url": "/"
+    }
+]
