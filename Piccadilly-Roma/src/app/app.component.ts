@@ -11,16 +11,17 @@ import { HttpClient } from '@angular/common/http';
   providers: [HttpClient],
   template: `
     <div class="container bg-container">
+      </div>
       <app-header></app-header>
       <div class="row">
         <div class="col-12">
           <app-main></app-main>
         </div>
       </div>
-    </div>
-
     <router-outlet />
   `,
-  styles: [``],
+  styles: [`
+ 
+    `],
 })
 export class AppComponent {}

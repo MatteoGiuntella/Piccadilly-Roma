@@ -33,6 +33,34 @@ import { Component } from '@angular/core';
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget velit tristique, sollicitudin leo viverra, suscipit neque. Aliquam ut facilisis urna, in pretium nibh.  Morbi in leo in eros commodo volutpat ac sed dolor.</p>
             </div>
         </div>
+         <div class="card d-flex position-relative flex-column">
+            <div class='imgContainer'>
+                <img src='assets/img/eventi.jpg'>
+            </div>
+            <div class="content">
+                <h2>Chi siamo</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget velit tristique, sollicitudin leo viverra, suscipit neque. Aliquam ut facilisis urna, in pretium nibh.  Morbi in leo in eros commodo volutpat ac sed dolor.</p>
+            </div>
+        </div>
+         <div class="card d-flex position-relative flex-column">
+            <div class='imgContainer'>
+                <img src='assets/img/eventi.jpg'>
+            </div>
+            <div class="content">
+                <h2>Prenotazioni</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget velit tristique, sollicitudin leo viverra, suscipit neque. Aliquam ut facilisis urna, in pretium nibh.  Morbi in leo in eros commodo volutpat ac sed dolor.</p>
+            </div>
+        </div>
+         <div class="card d-flex position-relative flex-column">
+            <div class='imgContainer'>
+                <img src='assets/img/eventi.jpg'>
+            </div>
+            <div class="content">
+                <h2>Dicono di noi</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget velit tristique, sollicitudin leo viverra, suscipit neque. Aliquam ut facilisis urna, in pretium nibh.  Morbi in leo in eros commodo volutpat ac sed dolor.</p>
+            </div>
+        </div>
+ 
     </div>
   `,
   styles: `
