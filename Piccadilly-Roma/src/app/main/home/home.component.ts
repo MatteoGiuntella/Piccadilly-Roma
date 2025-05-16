@@ -7,22 +7,16 @@ import { CardComponent } from '../../shared/card/card.component';
   selector: 'app-home',
   standalone: true,
   imports: [CardComponent],
-  template: ` 
-       <div class="container">
+  template: `
+    <div class="container">
+      <div class="row ">
+        <div class="col-12 d-flex justify-content-center align-items-center ">
+          <img src="assets/img/Piccadilly.png" alt="" />
+        </div>
+      </div>
           <app-card></app-card>
-       </div> `,
+    </div>
+  `,
   styles: ` `,
 })
-export class HomeComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {
-    this.getHomeCard();
-  }
-  cardMenù: NavMenù[] = [];
-  async getHomeCard() {
-    await this.http.get<NavMenù[]>('assets/navigation.json').subscribe({
-      next: (data) => (this.cardMenù = data),
-    });
-  }
-}
+export class HomeComponent {}

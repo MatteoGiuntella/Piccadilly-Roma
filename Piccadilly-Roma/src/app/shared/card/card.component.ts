@@ -1,41 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { NavMenù } from '../../models/nav-menù';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <div class="container h-100">
-      <div class="row align-middle">
-        <div class="col-md-6 col-lg-4 column">
+
+      <div class="row">
+        <div *ngFor="let item of cardHome" class="col-md-6 col-lg-4 column">
           <div class="card gr-1">
             <div class="txt">
               <h1>
-                BRANDING AND <br />
-                CORPORATE DESIGN
+               {{item.title}}
               </h1>
-              <p>Visual communication and problem-solving</p>
+              <p>{{item.description}}</p>
             </div>
             <a href="#">more</a>
-            <div class="ico-card">
-              <i class="fa fa-rebel"></i>
+            <div class="ico-card d-flex justify-content-end">
+              <img class="h-100" src="assets/img/vetrina.png" alt="">
             </div>
           </div>
         </div>
       </div>
-    </div>
   `,
   styles: `
- 
-$gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
-
-
-.gr-1{background: $gr-1;}
-
-
 *{transition: .5s;}
 
-.h-100{height: 100vh !important;}
 .align-middle{
   position: relative;
   top:50%;
@@ -45,6 +38,7 @@ $gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
 .column{
   margin-top:3rem;
   padding-left:3rem;
+
   &:hover{
     padding-left:0;
     .card .txt{
@@ -68,10 +62,12 @@ $gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
   padding: 1.7rem 1.2rem;
   border: none;
   border-radius: 0;
-  color:rgba(0,0,0,1);
+  color:#fff;
   letter-spacing: .05rem;
-  font-family: 'Oswald', sans-serif;
   box-shadow: 0 0 21px rgba(0,0,0,.27);
+  border:5px solid  #4A1213;
+  border-radius:5px;
+    background-color:gray;
   .txt{
     margin-left:-3rem;
     z-index: 1;
@@ -79,6 +75,7 @@ $gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
       font-size:1.5rem;
       font-weight: 300;
       text-transform: uppercase;
+      font-weight:bold;
     }
     p{
       font-size:.7rem;
@@ -92,7 +89,7 @@ $gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
   a{
     z-index:3;
     font-size: .7rem;
-    color:rgba(0,0,0,1);
+    color:#fff;
     margin-left:1rem;
     position:relative;
     bottom: -.5rem;
@@ -118,17 +115,20 @@ $gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
     height: 100%;
     overflow: hidden;
   }
-  i{
-    position: relative;
-    right: -50%;
-    top:60%;
-    font-size: 12rem;
-    line-height: 0;
-    opacity: .2;
-    color:rgba(255,255,255,1);
-    z-index: 0;
-   }
+
 }
  `,
 })
-export class CardComponent {}
+export class CardComponent {
+  
+    constructor(private http: HttpClient) { }
+    ngOnInit(): void {
+     this.getCardHome();
+    }
+    cardHome: NavMenù[] = []
+    async getCardHome() {
+    await this.http.get<NavMenù[]>('assets/navigation.json')
+        .subscribe({
+          next: (data) => this.cardHome = data});
+    }
+}
