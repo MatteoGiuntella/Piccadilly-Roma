@@ -9,19 +9,33 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule],
   providers: [HttpClient],
   template: `
-<nav class="navbar">
-  <ul class="navbar__menu list-unstyled">
-    <li class="navbar__item" *ngFor="let nav of navMenu">
-      <a [href]="nav.url" class="navbar__link"><i [class]="nav.icon" style="color: #ffffff;"></i><span>{{nav.title}}</span></a>
-    </li>
-  </ul>
-</nav>
+      <nav class="navbar d-flex flex-column justify-content-evenly">
+        <ul class="list-unstyled">
+          <li>
+            <div class="box-logo">
+              <img src="assets/img/logo.png" alt="">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar__menu list-unstyled">
+          <li class="navbar__item" *ngFor="let nav of navMenu">
+            <a [href]="nav.url" class="navbar__link"><i [class]="nav.icon" style="color: #ffffff;"></i><span style="color: white;background-color:#313131">{{nav.title}}</span></a>
+          </li>
+        </ul>
+      </nav>
   `,
   styles: [`
-
+.box-logo{
+ width:100%;
+ img{
+    width: 40px;
+    object-fit: contain;
+    border-radius: 20px;
+ }
+}
   $borderRadius: 10px;
 $spacer: 1rem;
-$primary:#424867;
+$primary:#313131;
 $text: #fff;
 $linkHeight: $spacer * 3.5;
 $timing: 250ms;
@@ -43,14 +57,14 @@ a{
   }
 }
 body {
-  background: #eaeef6;
+  background: #313131;
 }
 .navbar {
   $ref: &;
   position: fixed;
   top: $spacer;
   left: $spacer;
-  background: #2F395B;
+  background: #4A1213;
   border-radius: $borderRadius;
   padding: $spacer 0;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
@@ -138,6 +152,7 @@ body {
   }
 }
 
+  
   `]
 })
 export class HeaderComponent implements OnInit {
