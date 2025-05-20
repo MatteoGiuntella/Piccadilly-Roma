@@ -60,7 +60,9 @@
               "src/styles.scss",
               "bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+               "bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,9 +121,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "bootstrap/dist/css/bootstrap.min.css"
+               "bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }

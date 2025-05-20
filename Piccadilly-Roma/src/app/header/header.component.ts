@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavMenù} from '../models/nav-menù';
+import { NavMenù } from '../models/nav-menù';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,163 +9,141 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule],
   providers: [HttpClient],
   template: `
-      <nav class="navbar d-flex flex-column justify-content-evenly">
-        <ul class="list-unstyled">
-          <li>
-            <div class="box-logo">
-              <img src="assets/img/logo.png" alt="">
-            </div>
-          </li>
-        </ul>
-        <ul class="navbar__menu list-unstyled">
-          <li class="navbar__item" *ngFor="let nav of navMenu">
-            <a [href]="nav.url" class="navbar__link"><i [class]="nav.icon" style="color: #ffffff;"></i><span style="color: white;background-color:#313131">{{nav.title}}</span></a>
-          </li>
-        </ul>
-      </nav>
+    <nav
+      class="navbar navbar-dark fixed-top mb-3"
+      style="background-color: #4D221C;"
+    >
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between w-100 ">
+          <span class="box-logo ">
+            <img src="assets/img/PY_logo.jpg" alt="" />
+          </span>
+          <span class="box-logo-central bg-white">
+            <img src="assets/img/Piccadilly_logo.png" alt="" />
+          </span>
+          <span class="d-flex justify-content-center align-items-center">
+            <button
+              class="navbar-toggler bg-white mx-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasDarkNavbar"
+              aria-controls="offcanvasDarkNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span>
+                <i
+                  style="color: #4D221C;"
+                  class="fa-sharp fa-solid fa-bars fa-beat"
+                ></i>
+              </span>
+            </button>
+            <button style="background-color: #4D221C;">
+              <span>
+               <a href="/login"> <i class="fa-solid fa-user fa-xl" style="color:#fff;"></i></a>
+              </span>
+            </button>
+          </span>
+        </div>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          style="width: 17vw;"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <span class="box-title-offcanvas">
+              <img src="assets/img/Piccadilly_logo_white.png" alt="" />
+            </span>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item p-2" *ngFor="let item of navMenu">
+                <span
+                  class="d-flex justify-content-between align-items-center item-off"
+                  ><i class="{{ item.icon }}" [title]="item.title"></i>
+                  <a class="nav-link" [href]="item.url">{{
+                    item.title
+                  }}</a></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
   `,
-  styles: [`
-.box-logo{
- width:100%;
- img{
-    width: 40px;
-    object-fit: contain;
-    border-radius: 20px;
- }
-}
-  $borderRadius: 10px;
-$spacer: 1rem;
-$primary:#313131;
-$text: #fff;
-$linkHeight: $spacer * 3.5;
-$timing: 250ms;
-$transition: $timing ease all;
-a{
-    text-decoration: none;
-}
-@mixin gooeyEffect($i) {
-  @keyframes gooeyEffect-#{$i} {
-    0% {
-      transform: scale(1, 1);
-    }
-    50% {
-      transform: scale(0.5, 1.5);
-    }
-    100% {
-      transform: scale(1, 1);
-    }
-  }
-}
-body {
-  background: #313131;
-}
-.navbar {
-  $ref: &;
-  position: fixed;
-  top: $spacer;
-  left: $spacer;
-  background: #4A1213;
-  border-radius: $borderRadius;
-  padding: $spacer 0;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
-  height: calc(100vh - #{$spacer * 4});
-  &__link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: $linkHeight;
-    width: $spacer * 5.5;
-    color: $text;
-    transition: $transition;
-    span {
-      position: absolute;
-      left: 100%;
-      transform: translate(-($spacer * 3));
-      margin-left: 1rem;
-      opacity: 0;
-      pointer-events: none;
-      color: $primary;
-      background: #fff;
-      padding: $spacer * 0.75;
-      transition: $transition;
-      border-radius: $borderRadius * 1.75;
-    }
-    &:hover {
-      color: #fff;
-    }
-    .navbar:not(:hover) &:focus,
-    &:hover {
-      span {
-        opacity: 1;
-        transform: translate(0);
+  styles: [
+    `
+      .box-logo {
+        width: 45px;
+        img {
+          width: 100%;
+          object-fit: contain;
+          border-radius: 20px;
+        }
       }
-    }
-  }
-  &__menu {
-    position: relative;
-  }
-  &__item {
-    &:last-child {
-      &:before {
-        content: "";
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-        top: 0;
-        left: $spacer;
-        width: $linkHeight;
-        height: $linkHeight;
-        background: $primary;
-        border-radius: $borderRadius * 1.75;
-        transition: $timing cubic-bezier(1, 0.2, 0.1, 1.2) all;
-      }
-    }
 
-    @for $i from 1 to 12 {
-      &:first-child:nth-last-child(#{$i}),
-      &:first-child:nth-last-child(#{$i}) ~ li {
+      a {
+        text-decoration: none;
+      }
+
+      .box-title-offcanvas {
+        img {
+          width: 100%;
+          object-fit: contain;
+          border-radius: 10px;
+        }
+      }
+      li {
+        color: white;
+        font-size: 1rem;
+        border-radius: 5px;
         &:hover {
-          ~ li:last-child:before {
-            opacity: 1;
+          background-color: white;
+          color: #4d221c;
+          a {
+            color: #4d221c;
+            font-weight: bold;
           }
-        }
-        &:last-child:hover:before {
-          opacity: 1;
-        }
-        @for $j from 1 to $i {
-          &:nth-child(#{$j}):hover {
-            ~ li:last-child:before {
-              @include gooeyEffect($j);
-              top: (100% / $i) * ($j - 1);
-              animation: gooeyEffect-#{$j} $timing 1;
-            }
-          }
-        }
-        &:last-child:hover:before {
-          @include gooeyEffect($i);
-          top: (100% / $i) * ($i - 1);
-          animation: gooeyEffect-#{$i} $timing 1;
         }
       }
-    }
-  }
-}
 
-  
-  `]
+      @media (min-width: 790px) {
+        .box-logo-central {
+          display: none;
+        }
+      }
+      @media (max-width: 791px) {
+        .box-logo-central {
+          padding: 10px;
+          height: 50px;
+          border-radius: 20px;
+          img {
+            width: 100%;
+            object-fit: contain;
+            height: 100%;
+          }
+        }
+      }
+    `,
+  ],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   ngOnInit(): void {
-   this.getNavMenu();
+    this.getNavMenu();
   }
-  navMenu: NavMenù[] = []
+  navMenu: NavMenù[] = [];
   async getNavMenu() {
-  await this.http.get<NavMenù[]>('assets/navigation.json')
-      .subscribe({
-        next: (data) => this.navMenu = data});
+    await this.http.get<NavMenù[]>('assets/navigation.json').subscribe({
+      next: (data) => (this.navMenu = data),
+    });
   }
 }
-

@@ -1,49 +1,57 @@
 [
-    {   "id":1,
+     {   
+       "id":1,
         "title": "Home",
         "icon": "fa-solid fa-house fa-lg",
           "img": "",
         "description":"lorem ipsum dolor",
-        "url": "/"
-    },
-    {
+        "url": "/home"
+      },
+      {
         "id":2,
-        "title": "Menù",
+        "title": "Menù alla Carta",
         "icon": "fa-solid fa-book-open fa-lg",
           "img": "",
-        "description":"lorem ipsum dolor",
-        "url": "/"
-    },
-    {
+        "description":"Scopri la nostra selezione di piatti, tra tradizione e creatività, pensata per ogni gusto.",
+        "url": "/menu"
+      },  
+      {
         "id":3,
-        "title": "Eventi",
-        "icon": "fa-solid fa-champagne-glasses fa-lg",
-          "img": "",
-        "description":"lorem ipsum dolor",
-        "url": "/"
+        "title": "Menù Aperitivo",
+        "icon": "fa-solid fa-cubes-stacked fa-lg",
+        "img": "",
+        "description":"Un'esperienza di gusto pensata per il pre-serata, tra sfizi gourmet e cocktail d'autore.",
+        "url": "appetizers"
     },
-    {
-        "id":4,
-        "title": "Chi siamo",
-        "icon": "fa-solid fa-store fa-lg",
+    {   "id":4,
+        "title": "Lista dei Drink",
+        "icon": "fa-solid fa-martini-glass-citrus fa-lg",
           "img": "",
-        "description":"lorem ipsum dolor",
-        "url": "/"
+        "description":"Cocktail classici e creazioni originali, miscelati con cura dai nostri bartender.",
+        "url": "/cocktail"
     },
     {
         "id":5,
-        "title": "Prenotazioni e Contatti",
-        "icon": "fa-solid fa-bell-concierge fa-lg",
-          "img": "",
-        "description":"lorem ipsum dolor",
-        "url": "/"
+        "title": "Carta dei Vini",
+        "icon": "fa-solid fa-wine-bottle fa-lg",
+        "img": "",
+        "description":"Una selezione curata di etichette italiane e internazionali per accompagnare ogni piatto.",
+        "url": "/wine"
     },
     {
         "id":6,
-        "title": "Dicono di noi",
-        "icon": "fa-solid fa-newspaper fa-lg",
-        "img": "",
-        "description":"lorem ipsum dolor",
-        "url": "/"
+        "title": "Prenotazioni",
+        "icon": "fa-solid fa-bell-concierge fa-lg",
+          "img": "",
+        "description":"Prenota il tuo tavolo o contattaci per informazioni e richieste speciali.",
+        "url": "/reservations"
+    },
+    {
+        "id":7,
+        "title": "Eventi",
+        "icon": "fa-solid fa-champagne-glasses fa-lg",
+          "img": "",
+        "description":"Scopri serate a tema, degustazioni, musica live e tutte le nostre iniziative speciali.",
+        "url": "/event"
     }
-]
+  ]

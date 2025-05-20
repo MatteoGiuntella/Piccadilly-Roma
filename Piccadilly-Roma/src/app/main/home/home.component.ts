@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { NavMenù } from '../../models/nav-menù';
+import { Component } from '@angular/core';
 import { CardComponent } from '../../shared/card/card.component';
 
 @Component({
@@ -10,13 +8,23 @@ import { CardComponent } from '../../shared/card/card.component';
   template: `
     <div class="container">
       <div class="row ">
-        <div class="col-12 d-flex justify-content-center align-items-center ">
-          <img src="assets/img/Piccadilly.png" alt="" />
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <img src="assets/img/Piccadilly_logo_white.png" alt="Logo" />
         </div>
       </div>
-          <app-card></app-card>
+      <app-card ></app-card>
     </div>
   `,
-  styles: ` `,
+  styles: [`
+    img {
+      height: 30%;
+    }
+
+    @media (max-width: 790px) {
+      .row {
+        display: none;
+      }
+    }
+  `]
 })
 export class HomeComponent {}

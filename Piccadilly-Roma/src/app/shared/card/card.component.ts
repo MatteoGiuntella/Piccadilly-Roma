@@ -2,29 +2,29 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavMenù } from '../../models/nav-menù';
 import { CommonModule } from '@angular/common';
+import { MenuComponent } from "../../main/free/menu/menu.component";
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [CommonModule],
   template: `
-
-      <div class="row">
-        <div *ngFor="let item of cardHome" class="col-md-6 col-lg-4 column">
-          <div class="card gr-1">
-            <div class="txt">
-              <h1>
-               {{item.title}}
-              </h1>
-              <p>{{item.description}}</p>
-            </div>
-            <a href="#">more</a>
-            <div class="ico-card d-flex justify-content-end">
-              <img class="h-100" src="assets/img/vetrina.png" alt="">
-            </div>
+    <div class="row m-4">
+      <div *ngFor="let item of cardHome" class="col-md-6 col-lg-4 column">
+        <div class="card gr-1">
+          <div class="txt">
+            <h1>
+              {{ item.title }}<i class="{{ item.icon }}" ></i>
+            </h1>
+            <p>{{ item.description }}</p>
+          </div>
+          <a href="{{ item.url }}">Visualizza </a>
+          <div class="ico-card d-flex justify-content-end">      
+            <img class="h-100" src="assets/img/PY_logo.png" alt="" />
           </div>
         </div>
       </div>
+    </div>
   `,
   styles: `
 *{transition: .5s;}
@@ -57,7 +57,7 @@ import { CommonModule } from '@angular/common';
   }
 }
 .card{
-  min-height:170px;
+  min-height:210px;
   margin: 0;
   padding: 1.7rem 1.2rem;
   border: none;
@@ -115,20 +115,18 @@ import { CommonModule } from '@angular/common';
     height: 100%;
     overflow: hidden;
   }
-
 }
  `,
 })
 export class CardComponent {
-  
-    constructor(private http: HttpClient) { }
-    ngOnInit(): void {
-     this.getCardHome();
-    }
-    cardHome: NavMenù[] = []
-    async getCardHome() {
-    await this.http.get<NavMenù[]>('assets/navigation.json')
-        .subscribe({
-          next: (data) => this.cardHome = data});
-    }
+  constructor(private http: HttpClient) {}
+  ngOnInit(): void {
+    this.getCardHome();
+  }
+  cardHome: NavMenù[] = [];
+  async getCardHome() {
+    await this.http.get<NavMenù[]>('assets/navigation.json').subscribe({
+      next: (data) => (this.cardHome = data.filter(item => item.id !== 1)),
+    });
+  }
 }
